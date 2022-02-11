@@ -1,0 +1,62 @@
+---
+title: "Penguins"
+author: "Lindsey Forg"
+date: "2/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+## Data ##
+
+These data were collected by Dr. Kristen Gorman in the Palmer Station, Antarctica LTER, from 344 penguins of 3 different species from 3 islands. 
+
+![](/Users/lindseyforg/Desktop/NTRES 6100/penguins/penguins.jpeg)
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+
+## Single trait distribution ##
+
+Here is a plot looking at the bill length distribution of the Palmer penguins. We can see that Adelie penguins have a smaller bill length than Chinstrap and Gentoo penguins, which exhibit more overlap. 
+
+```{r}
+ggplot(data = penguins) + 
+  geom_histogram(mapping = aes(x = bill_length_mm, color = species,  fill = species), alpha = 0.3)
+```
+
+
+## Relationship between multiple traits ##
+
+Here is a plot looking at the relationship between bill length and bill depth. We can see that bill length tends to correlate positively with bill depth for all species, and Adelie penguins have the shortest and deepest bills, and Chinstrap and Gentoo penguins have similar length bills but Chinstrap penguins have deeper bills than Gentoo penguins. 
+
+```{r}
+ggplot(data = penguins) + 
+  geom_point(mapping = aes(x = bill_length_mm, y = bill_depth_mm, color = species))
+```
+
+
+## Sexual dimorphism ##
+
+Here are some plots looking at sexual dimorphism in penguins. We can see that the distribution of males is generally larger than that of females for all 3 species. 
+
+```{r}
+filter(penguins, !is.na(sex)) %>%
+ggplot() +  
+  geom_density(mapping = aes(x = body_mass_g, color = sex))
+```
+
+Separating based on species, we can see sexual dimorphism exhibited in all 3 species based on body mass. 
+
+```{r}
+filter(penguins, !is.na(sex)) %>%
+ggplot() + 
+  geom_density(mapping = aes(x = body_mass_g, color = sex)) +
+  facet_wrap(~ species)
+```
+
