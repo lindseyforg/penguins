@@ -1,0 +1,19 @@
+---
+title: "Single Trait Distribution"
+author: "Lindsey Forg"
+date: "2/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Single trait distribution ##
+
+Here is a plot looking at the bill length distribution of the Palmer penguins. We can see that Adelie penguins have a smaller bill length than Chinstrap and Gentoo penguins, which exhibit more overlap. 
+
+```{r}
+ggplot(data = penguins) + 
+  geom_histogram(mapping = aes(x = bill_length_mm, color = species,  fill = species), alpha = 0.3)
+```

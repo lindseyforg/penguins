@@ -1,0 +1,13 @@
+name: "penguins"
+navbar:
+  title: "Lindsey's Penguin Website"
+  left:
+    - text: "Penguins"
+      href: index.html
+    - text: "Single Trait Distribution"
+      href: singletrait.html
+      - text: "Multiple Trait Distribution"
+      href: multitrait.html
+      - text: "Sexual Dimorphism"
+      href: sexdimorph.html
+output_dir: "."
