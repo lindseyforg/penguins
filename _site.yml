@@ -6,8 +6,8 @@ navbar:
       href: index.html
     - text: "Single Trait Distribution"
       href: singletrait.html
-      - text: "Multiple Trait Distribution"
+    - text: "Multiple Trait Distribution"
       href: multitrait.html
-      - text: "Sexual Dimorphism"
+    - text: "Sexual Dimorphism"
       href: sexdimorph.html
 output_dir: "."
